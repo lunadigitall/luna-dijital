@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Paketler · Luna Dijital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --abyss:#07071f;--deep:#0d0e33;--line:#24265e;--foam:#f4f2ff;--mist:#a9a8d6;--coral:#ff7a8a;--lagoon:#4fd8ff;--peach:#ffc9a8;--ink:#16133d;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Manrope","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(70% 50% at 50% 0%,#1a1460 0%,var(--abyss) 70%) no-repeat,var(--abyss);color:var(--foam);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lagoon);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:999px;padding:12px 22px;border:1px solid transparent;transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--foam);color:var(--ink)}
+.btn-ghost{border-color:rgba(255,255,255,.35)}
+
+.nav{position:sticky;top:0;z-index:20;background:rgba(7,7,31,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo-t{display:flex;align-items:baseline;gap:7px;line-height:1}
+.logo-t b,.logo-t small{font-family:var(--f-body);font-size:16px;letter-spacing:.32em;text-transform:uppercase}
+.logo-t b{font-weight:800}
+.logo-t small{font-weight:500;opacity:.8}
+.back{font-size:14px;font-weight:600;color:var(--mist)}
+.back:hover{color:var(--foam)}
+.back-nav{display:flex;gap:18px}
+@media (max-width:520px){ .back-nav .hide-s{display:none} }
+
+.head{text-align:center;padding-block:72px 40px}
+.head h1{font-size:clamp(40px,6vw,76px);font-weight:800;margin-top:10px}
+.head p{color:var(--mist);max-width:52ch;margin:16px auto 0}
+.switch{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:28px}
+.switch a{border:1px solid var(--line);color:var(--mist);border-radius:999px;padding:9px 18px;font-weight:600;font-size:14px;transition:.2s}
+.switch a:hover,.switch a.on{background:var(--foam);color:var(--ink);border-color:var(--foam)}
+
+/* package cards: glow + 8px gradient border */
+.grid{display:grid;grid-template-columns:1fr;gap:48px;max-width:1100px;margin:0 auto;padding:0 16px}
+.pk{position:relative;scroll-margin-top:96px;opacity:0;transform:translateY(30px);transition:opacity .8s ease-out var(--d,0s),transform .8s ease-out var(--d,0s)}
+.pk.in{opacity:1;transform:none}
+.glow{position:absolute;inset:0;opacity:.5;border-radius:40px;pointer-events:none;background:var(--g);filter:blur(45px);transition:opacity .4s}
+.pk:hover .glow,.pk.focus .glow{opacity:.85}
+.face{position:relative;height:100%;border-radius:40px;border:8px solid transparent;background:linear-gradient(#1A1A1C,#1A1A1C) padding-box,var(--g) border-box;padding:30px 28px;display:flex;flex-direction:column;gap:22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.ic{width:56px;height:56px;border-radius:18px;display:grid;place-items:center;background:rgba(255,255,255,.06);color:rgba(255,255,255,.9)}
+.ic svg{width:30px;height:30px;fill:none;stroke:currentColor;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.badge{font-family:var(--f-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:999px;background:var(--g);color:#16133d;font-weight:500}
+.pk h2{font-family:var(--f-body);font-weight:600;font-size:26px;letter-spacing:-.01em;color:#fff}
+.who{color:#9ca3af;font-size:14px;margin-top:6px}
+.list{list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:15px;color:#d6d6e4}
+.list li{display:flex;gap:10px;align-items:flex-start}
+.list li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--g);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.8-1.8 3.2 3.2 7-7 1.8 1.8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.8-1.8 3.2 3.2 7-7 1.8 1.8z'/%3E%3C/svg%3E") center/contain no-repeat}
+.list li.plus{font-weight:700;color:#fff}
+.list li.plus::before{-webkit-mask:none;mask:none;background:none;content:"＋";width:18px;text-align:center;line-height:1.3}
+.face .btn{margin-top:auto;align-self:stretch}
+@media (min-width:900px){
+  .grid{grid-template-columns:repeat(3,1fr);gap:16px}
+}
+
+/* comparison */
+.compare{max-width:1100px;margin:110px auto 0;padding:0 16px}
+.compare h3{font-size:clamp(28px,4vw,44px);font-weight:800;text-align:center;margin-bottom:28px}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:22px;background:rgba(13,14,51,.6)}
+table{width:100%;border-collapse:collapse;min-width:560px;font-size:14px}
+th,td{padding:14px 18px;text-align:center;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left;color:#d6d6e4}
+thead th{font-family:var(--f-body);font-weight:700;color:#fff;font-size:15px;background:rgba(255,255,255,.03)}
+tbody tr:last-child td{border-bottom:0}
+td.y{color:var(--lagoon);font-weight:800}
+td.n{color:#4b4c7a}
+
+.cta{text-align:center;padding:110px 16px 120px}
+.cta h3{font-size:clamp(30px,5vw,56px);font-weight:800}
+.cta p{color:var(--mist);margin:14px auto 26px;max-width:46ch}
+.cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding-block:24px;font-size:12px;color:var(--mist)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .pk{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" aria-label="Luna Dijital ana sayfa"><span class="logo-t"><b>Luna</b><small>Dijital</small></span></a>
+    <nav class="back-nav" aria-label="Sayfalar"><a class="back hide-s" href="hizmetler.html">Hizmetler</a><a class="back" href="index.html">← Ana sayfa</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="head wrap">
+    <div class="eyebrow">Paketlerimiz</div>
+    <h1>Size uygun paketi seçin.</h1>
+    <p>Her paket markanıza göre şekillenir. Hangisinin size uyduğundan emin değilseniz ücretsiz analizle birlikte önerimizi sunalım.</p>
+    <nav class="switch" aria-label="Paketler">
+      <a href="#baslangic">Başlangıç</a><a href="#orta">Orta</a><a href="#ileri">İleri</a>
+    </nav>
+  </section>
+
+  <div class="grid">
+    <article class="pk" id="baslangic" style="--d:.1s;--g:linear-gradient(137deg,#FF3D77 0%,#FFB1CE 45%,#FF9D3C 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="top">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-10"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/></svg></div>
+          <span class="badge">01 · İlk adım</span>
+        </div>
+        <div>
+          <h2>Başlangıç Paket</h2>
+          <p class="who">Dijitalde ilk adımı atan salonlar ve butik markalar için.</p>
+        </div>
+        <ul class="list">
+          <li>Instagram ve Facebook hesap yönetimi</li>
+          <li>Ayda 12 gönderi ve 8 hikâye tasarımı</li>
+          <li>Meta reklam kurulumu ve yönetimi</li>
+          <li>Google İşletme Profili kurulumu ve optimizasyonu</li>
+          <li>Temel Google SEO: anahtar kelime ve site kontrolü</li>
+          <li>Aylık performans raporu</li>
+          <li>WhatsApp üzerinden hızlı destek</li>
+        </ul>
+        <a class="btn btn-solid" href="index.html#iletisim">Bu paket için teklif al</a>
+      </div>
+    </article>
+
+    <article class="pk" id="orta" style="--d:.2s;--g:linear-gradient(137deg,#FFFFFF 0%,#7DD3FC 45%,#06B6D4 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="top">
+          <div class="ic"><svg viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></div>
+          <span class="badge">02 · Popüler</span>
+        </div>
+        <div>
+          <h2>Orta Paket</h2>
+          <p class="who">Daha fazla müşteriye ulaşmak ve büyümek isteyen markalar için.</p>
+        </div>
+        <ul class="list">
+          <li class="plus">Başlangıç Paket'teki her şey</li>
+          <li>Ayda 20 gönderi, 12 hikâye ve 4 Reels</li>
+          <li>Ayda 1 gün profesyonel içerik çekimi</li>
+          <li>Meta ve Google Ads reklam yönetimi</li>
+          <li>Kurumsal kimlik: logo yenileme, renk paleti, yazı tipleri</li>
+          <li>Sosyal medya şablon seti</li>
+          <li>Ayda 2 SEO uyumlu blog yazısı</li>
+          <li>Aylık rapor ve strateji toplantısı</li>
+        </ul>
+        <a class="btn btn-solid" href="index.html#iletisim">Bu paket için teklif al</a>
+      </div>
+    </article>
+
+    <article class="pk" id="ileri" style="--d:.3s;--g:linear-gradient(137deg,#4361EE 0%,#E0AEFF 45%,#F72585 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="top">
+          <div class="ic"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <span class="badge">03 · Tam kapsam</span>
+        </div>
+        <div>
+          <h2>İleri Paket</h2>
+          <p class="who">Dijitaldeki her şeyi tek ekibe emanet etmek isteyen markalar için.</p>
+        </div>
+        <ul class="list">
+          <li class="plus">Orta Paket'teki her şey</li>
+          <li>Web sitesi tasarımı: kurumsal site veya e-ticaret</li>
+          <li>Gelişmiş SEO: teknik SEO, ayda 4 blog yazısı, bağlantı çalışması</li>
+          <li>Tüm reklam kanalları: Meta, Google, TikTok, YouTube</li>
+          <li>Influencer iş birlikleri</li>
+          <li>Size özel ekip: strateji lideri, kreatif ve veri analisti</li>
+          <li>Haftalık rapor ve canlı performans paneli</li>
+          <li>Öncelikli destek</li>
+        </ul>
+        <a class="btn btn-solid" href="index.html#iletisim">Bu paket için teklif al</a>
+      </div>
+    </article>
+  </div>
+
+  <section class="compare" aria-labelledby="cmpTitle">
+    <h3 id="cmpTitle">Paketleri karşılaştırın</h3>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th scope="col">Hizmet</th><th scope="col">Başlangıç</th><th scope="col">Orta</th><th scope="col">İleri</th></tr></thead>
+        <tbody>
+          <tr><td>Sosyal medya yönetimi</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Meta reklamları</td><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Google SEO</td><td>Temel</td><td>Temel + blog</td><td>Gelişmiş</td></tr>
+          <tr><td>Google Ads</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>İçerik çekimi</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Grafik tasarım ve kurumsal kimlik</td><td class="n">—</td><td class="y">✓</td><td class="y">✓</td></tr>
+          <tr><td>Web sitesi tasarımı</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><td>TikTok ve YouTube reklamları</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><td>Size özel strateji ekibi</td><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
+          <tr><td>Raporlama</td><td>Aylık</td><td>Aylık + toplantı</td><td>Haftalık + canlı panel</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h3>Hangisi size uygun?</h3>
+    <p>20 dakikalık bir görüşmede hedeflerinizi dinleyelim, markanıza en uygun paketi birlikte belirleyelim.</p>
+    <div class="row">
+      <a class="btn btn-solid" href="index.html#iletisim">Ücretsiz Analiz Al</a>
+      <a class="btn btn-ghost" href="index.html">Ana sayfaya dön</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Luna Dijital. Tüm hakları saklıdır. · Maltepe, İstanbul</span><a href="mailto:lunadigitaall@gmail.com">lunadigitaall@gmail.com</a></div>
+</footer>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const cards = document.querySelectorAll('.pk');
+  if('IntersectionObserver' in window && !reduce){
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.1});
+    cards.forEach(el=>io.observe(el));
+  } else cards.forEach(el=>el.classList.add('in'));
+
+  // highlight the package the visitor clicked on the home page
+  const links = document.querySelectorAll('.switch a');
+  function mark(){
+    const id = location.hash.slice(1);
+    cards.forEach(c=>c.classList.toggle('focus', c.id === id));
+    links.forEach(a=>a.classList.toggle('on', a.getAttribute('href') === '#'+id));
+  }
+  addEventListener('hashchange', mark); mark();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Hizmetler · Luna Dijital</title>
+<meta name="description" content="Luna Dijital hizmetleri: dijital pazarlama, sosyal medya yönetimi, Meta reklamları, Google SEO, web sitesi tasarımı, grafik tasarım ve kurumsal kimlik. Maltepe, İstanbul.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+:root{
+  --abyss:#07071f;--deep:#0d0e33;--line:#24265e;--foam:#f4f2ff;--mist:#a9a8d6;--coral:#ff7a8a;--lagoon:#4fd8ff;--peach:#ffc9a8;--ink:#16133d;
+  --f-display:"Bricolage Grotesque","Avenir Next","Segoe UI",system-ui,sans-serif;
+  --f-body:"Manrope","Segoe UI",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(70% 50% at 50% 0%,#1a1460 0%,var(--abyss) 70%) no-repeat,var(--abyss);color:var(--foam);font-family:var(--f-body);font-size:16px;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--lagoon);outline-offset:3px;border-radius:8px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.05;margin:0;letter-spacing:-.02em;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1100px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:700;font-size:15px;border-radius:999px;padding:12px 22px;border:1px solid transparent;transition:transform .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px)}
+.btn-solid{background:var(--foam);color:var(--ink)}
+.btn-ghost{border-color:rgba(255,255,255,.35)}
+
+.nav{position:sticky;top:0;z-index:20;background:rgba(7,7,31,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px}
+.logo-t{display:flex;align-items:baseline;gap:7px;line-height:1}
+.logo-t b,.logo-t small{font-family:var(--f-body);font-size:16px;letter-spacing:.32em;text-transform:uppercase}
+.logo-t b{font-weight:800}
+.logo-t small{font-weight:500;opacity:.8}
+.nav-r{display:flex;gap:18px;font-size:14px;font-weight:600;color:var(--mist)}
+.nav-r a:hover{color:var(--foam)}
+
+.head{text-align:center;padding-block:72px 32px}
+.head h1{font-size:clamp(40px,6vw,76px);font-weight:800;margin-top:10px}
+.head p{color:var(--mist);max-width:54ch;margin:16px auto 0}
+.switch{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:28px}
+.switch a{border:1px solid var(--line);color:var(--mist);border-radius:999px;padding:9px 16px;font-weight:600;font-size:14px;transition:.2s}
+.switch a:hover,.switch a.on{background:var(--foam);color:var(--ink);border-color:var(--foam)}
+
+/* service blocks: glow + 8px gradient border */
+.list-wrap{display:grid;gap:56px;max-width:1100px;margin:24px auto 0;padding:0 16px}
+.svc{position:relative;scroll-margin-top:96px;opacity:0;transform:translateY(30px);transition:opacity .8s ease-out,transform .8s ease-out}
+.svc.in{opacity:1;transform:none}
+.glow{position:absolute;inset:0;opacity:.45;border-radius:40px;pointer-events:none;background:var(--g);filter:blur(45px);transition:opacity .4s}
+.svc:hover .glow,.svc.focus .glow{opacity:.8}
+.face{position:relative;border-radius:40px;border:8px solid transparent;background:linear-gradient(#1A1A1C,#1A1A1C) padding-box,var(--g) border-box;padding:32px 28px;display:grid;gap:28px}
+.lead{display:flex;flex-direction:column;gap:16px}
+.em{width:72px;height:72px;border-radius:22px;display:grid;place-items:center;font-size:40px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12)}
+.svc h2{font-family:var(--f-body);font-weight:700;font-size:clamp(26px,3vw,34px);letter-spacing:-.015em;color:#fff}
+.svc .desc{color:#b4b5c8;font-size:15px;max-width:46ch}
+.in-pk{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px;color:#9ca3af}
+.in-pk a{padding:5px 11px;border-radius:999px;border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:600;transition:background .2s}
+.in-pk a:hover{background:rgba(255,255,255,.12)}
+.what h3{font-family:var(--f-mono);font-weight:500;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mist);margin-bottom:14px}
+.ticks{list-style:none;margin:0;padding:0;display:grid;gap:11px;font-size:15px;color:#e1e1ee}
+.ticks li{display:flex;gap:10px;align-items:flex-start}
+.ticks li::before{content:"";flex:none;width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--g);
+  -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.8-1.8 3.2 3.2 7-7 1.8 1.8z'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 0a12 12 0 1 0 0 24 12 12 0 0 0 0-24zm-1.6 17.2-5-5 1.8-1.8 3.2 3.2 7-7 1.8 1.8z'/%3E%3C/svg%3E") center/contain no-repeat}
+.result{margin-top:18px;padding:14px 16px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);font-size:14px;color:#cfd0e2}
+.result b{color:#fff}
+@media (min-width:860px){
+  .face{grid-template-columns:.95fr 1.05fr;padding:40px 40px;gap:40px}
+}
+
+.cta{text-align:center;padding:110px 16px 120px}
+.cta h3{font-size:clamp(30px,5vw,56px);font-weight:800}
+.cta p{color:var(--mist);margin:14px auto 26px;max-width:46ch}
+.cta .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding-block:24px;font-size:12px;color:var(--mist)}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:520px){ .nav-r .hide-s{display:none} }
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .svc{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="wrap">
+    <a href="index.html" aria-label="Luna Dijital ana sayfa"><span class="logo-t"><b>Luna</b><small>Dijital</small></span></a>
+    <nav class="nav-r" aria-label="Sayfalar"><a class="hide-s" href="paketler.html">Paketler</a><a href="index.html">← Ana sayfa</a></nav>
+  </div>
+</header>
+
+<main>
+  <section class="head wrap">
+    <div class="eyebrow">Hizmetlerimiz</div>
+    <h1>Markanız için neler yapıyoruz?</h1>
+    <p>Strateji, tasarım, reklam ve SEO tek ekipte. İhtiyacınız olan hizmeti seçin, ayrıntılarını görün.</p>
+    <nav class="switch" aria-label="Hizmetler">
+      <a href="#dijital-pazarlama">📈 Dijital Pazarlama</a><a href="#sosyal-medya">📲 Sosyal Medya</a><a href="#meta-reklamlari">📱 Meta Reklamları</a><a href="#google-seo">🔍 Google SEO</a><a href="#web-sitesi">💻 Web Sitesi</a><a href="#grafik-tasarim">🎨 Grafik Tasarım</a>
+    </nav>
+  </section>
+
+  <div class="list-wrap">
+    <article class="svc" id="dijital-pazarlama" style="--g:linear-gradient(137deg,#FF3D77 0%,#FFB1CE 45%,#FF9D3C 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">📈</div>
+          <h2>Dijital Pazarlama</h2>
+          <p class="desc">Markanızın dijitaldeki yol haritasını çiziyoruz. Kime, hangi kanaldan, hangi mesajla ulaşacağınızı belirliyor, her adımı ölçerek büyütüyoruz.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#baslangic">Başlangıç</a><a href="paketler.html#orta">Orta</a><a href="paketler.html#ileri">İleri</a></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Marka, rakip ve hedef kitle analizi</li>
+            <li>Kanal seçimi ve aylık pazarlama planı</li>
+            <li>Kampanya takvimi: özel gün, sezon ve indirim dönemleri</li>
+            <li>WhatsApp ve form dönüşümlerinin takibi</li>
+            <li>Aylık rapor: ne işe yaradı, neyi değiştiriyoruz</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> Bütçenizin nereye gittiğini ve size kaç müşteri getirdiğini net olarak görürsünüz.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="sosyal-medya" style="--g:linear-gradient(137deg,#FF9D3C 0%,#FFD6A5 45%,#FF3D77 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">📲</div>
+          <h2>Sosyal Medya Yönetimi</h2>
+          <p class="desc">Instagram ve Facebook hesaplarınızı markanıza yakışan bir dille yönetiyoruz. Düzenli, estetik ve etkileşim getiren içerikler hazırlıyoruz.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#baslangic">Başlangıç</a><a href="paketler.html#orta">Orta</a><a href="paketler.html#ileri">İleri</a></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Aylık içerik takvimi ve onay süreci</li>
+            <li>Gönderi, hikâye ve Reels tasarımı</li>
+            <li>Profesyonel içerik çekimi (Orta ve İleri pakette)</li>
+            <li>Açıklama metinleri ve hashtag stratejisi</li>
+            <li>Influencer iş birlikleri (İleri pakette)</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> Hesabınız düzenli ve profesyonel görünür, takipçileriniz müşteriye dönüşür.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="meta-reklamlari" style="--g:linear-gradient(137deg,#4361EE 0%,#E0AEFF 45%,#F72585 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">📱</div>
+          <h2>Meta Reklamları</h2>
+          <p class="desc">Instagram ve Facebook reklamlarıyla doğru kişilere, doğru zamanda ulaşıyoruz. Randevu, mesaj ve satış odaklı kampanyalar kuruyoruz.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#baslangic">Başlangıç</a><a href="paketler.html#orta">Orta</a><a href="paketler.html#ileri">İleri</a></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Reklam hesabı, Pixel ve dönüşüm takibi kurulumu</li>
+            <li>Konum, ilgi alanı ve benzer kitle hedeflemesi</li>
+            <li>Reklam görselleri, videoları ve metinleri</li>
+            <li>A/B testleri ve günlük bütçe optimizasyonu</li>
+            <li>Mesaj, randevu ve satış kampanyaları</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> Reklam bütçeniz boşa gitmez, her liranın getirisini raporla görürsünüz.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="google-seo" style="--g:linear-gradient(137deg,#FFFFFF 0%,#7DD3FC 45%,#06B6D4 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">🔍</div>
+          <h2>Google SEO</h2>
+          <p class="desc">Müşterileriniz sizi Google'da ve Haritalar'da arıyor. Sizi aradıkları anda karşılarına çıkmanızı sağlıyoruz.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#baslangic">Başlangıç</a><a href="paketler.html#orta">Orta</a><a href="paketler.html#ileri">İleri</a></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Google İşletme Profili kurulumu ve optimizasyonu</li>
+            <li>Yerel SEO: "yakınımdaki" aramalarda görünürlük</li>
+            <li>Anahtar kelime araştırması ve site içi düzenlemeler</li>
+            <li>Teknik SEO ve site hızı iyileştirmeleri</li>
+            <li>SEO uyumlu blog yazıları (Orta ve İleri pakette)</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> Reklam bütçesi harcamadan, sizi arayan müşterilere ulaşırsınız.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="web-sitesi" style="--g:linear-gradient(137deg,#06B6D4 0%,#A5F3FC 45%,#4361EE 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">💻</div>
+          <h2>Web Sitesi Tasarımı</h2>
+          <p class="desc">Markanızı en iyi şekilde anlatan, hızlı ve mobil uyumlu web siteleri tasarlıyoruz. Kurumsal site de, e-ticaret sitesi de mümkün.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#ileri">İleri</a> <span>veya tek başına hizmet olarak</span></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Size özel tasarım: hazır şablon değil</li>
+            <li>Mobil uyumlu ve hızlı açılan sayfalar</li>
+            <li>Randevu, WhatsApp ve iletişim formu entegrasyonu</li>
+            <li>SEO altyapısı ve Google Analytics kurulumu</li>
+            <li>Alan adı, hosting ve yayına alma desteği</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> 7/24 çalışan, güven veren ve müşteri getiren bir dijital vitriniz olur.</p>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc" id="grafik-tasarim" style="--g:linear-gradient(137deg,#C084FC 0%,#FBCFE8 45%,#FF9D3C 100%)">
+      <div class="glow"></div>
+      <div class="face">
+        <div class="lead">
+          <div class="em" aria-hidden="true">🎨</div>
+          <h2>Grafik Tasarım &amp; Kurumsal Kimlik</h2>
+          <p class="desc">Akılda kalan bir marka için logodan kartvizite kadar tüm görsel kimliğinizi bir bütün olarak tasarlıyoruz.</p>
+          <div class="in-pk">Hangi paketlerde: <a href="paketler.html#orta">Orta</a><a href="paketler.html#ileri">İleri</a> <span>veya tek başına hizmet olarak</span></div>
+        </div>
+        <div class="what">
+          <h3>Neler yapıyoruz</h3>
+          <ul class="ticks">
+            <li>Logo tasarımı veya logo yenileme</li>
+            <li>Renk paleti ve yazı tipi seçimi</li>
+            <li>Kartvizit, broşür, menü ve fiyat listesi tasarımı</li>
+            <li>Sosyal medya şablon seti</li>
+            <li>Marka kullanım kılavuzu</li>
+          </ul>
+          <p class="result"><b>Sonuç:</b> Markanız her yerde aynı, tutarlı ve profesyonel görünür.</p>
+        </div>
+      </div>
+    </article>
+  </div>
+
+  <section class="cta">
+    <h3>Hangi hizmete ihtiyacınız var?</h3>
+    <p>Bize yazın, markanızı inceleyip size en uygun hizmeti ve paketi birlikte belirleyelim.</p>
+    <div class="row">
+      <a class="btn btn-solid" href="index.html#iletisim">Ücretsiz Analiz Al</a>
+      <a class="btn btn-ghost" href="paketler.html">Paketleri incele</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Luna Dijital. Tüm hakları saklıdır. · Maltepe, İstanbul</span><a href="mailto:lunadigitaall@gmail.com">lunadigitaall@gmail.com</a></div>
+</footer>
+
+<script>
+(function(){
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const blocks = document.querySelectorAll('.svc');
+  if('IntersectionObserver' in window && !reduce){
+    const io = new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),{threshold:.08});
+    blocks.forEach(el=>io.observe(el));
+  } else blocks.forEach(el=>el.classList.add('in'));
+
+  // highlight the service the visitor came for
+  const links = document.querySelectorAll('.switch a');
+  function mark(){
+    const id = location.hash.slice(1);
+    blocks.forEach(b=>{ b.classList.toggle('focus', b.id === id); if(b.id === id) b.classList.add('in'); });
+    links.forEach(a=>a.classList.toggle('on', a.getAttribute('href') === '#'+id));
+  }
+  addEventListener('hashchange', mark); mark();
+})();
+</script>
+</body>
+</html>
