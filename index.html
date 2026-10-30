@@ -110,38 +110,43 @@ p{margin:0}
 .pt-back span{font-size:13px;font-weight:600;line-height:1.35;color:#3b3863;max-width:22ch}
 .pt-tile:focus-visible .pt-face{outline:2px solid var(--lagoon);outline-offset:2px}
 /* Web sitesi paketleri */
-.webpk{background:#fff;color:#0b0b14;padding-block:80px 96px}
-.wp-head{text-align:center;margin-bottom:48px}
-.wp-tag{font-size:14px;font-weight:700}
-.wp-title{font-family:var(--f-body);font-weight:700;font-size:clamp(44px,8vw,96px);letter-spacing:-.045em;line-height:1.1;margin:14px 0 12px;height:1.15em;overflow:hidden;white-space:nowrap}
-.wp-title span{display:inline-block;transition:transform .6s cubic-bezier(.2,.8,.2,1),opacity .6s,filter .6s;transition-delay:calc(var(--i)*35ms)}
-.wp-title.out span{transform:translateY(-60%);opacity:0;filter:blur(6px)}
-.wp-title.pre span{transform:translateY(60%);opacity:0;filter:blur(6px);transition:none}
-.wp-head p{font-size:16px;font-weight:600}
-.wp-box{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:12px;border-radius:24px;background:#f4f4f5}
-.wp-card{position:relative;border-radius:18px;padding:40px 44px 36px;display:flex;flex-direction:column}
-.wp-card.pro{background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.04),0 20px 50px -30px rgba(0,0,0,.25)}
-.wp-orb{position:absolute;top:28px;right:36px;width:44px;height:44px;border-radius:50%}
-.wp-orb.mono{background:radial-gradient(circle at 32% 28%,#fff 0 8%,#9a9a9a 30%,#2b2b2b 70%,#555 100%)}
-.wp-orb.color{background:radial-gradient(circle at 30% 25%,#fff 0 6%,transparent 30%),conic-gradient(from 200deg,#ff2d87,#7b2ff7,#2f6bff,#00c2ff,#ff2d87)}
-.wp-card h3{font-family:var(--f-body);font-size:22px;font-weight:700;letter-spacing:-.01em}
-.wp-desc{color:#6b6b75;font-size:16px;line-height:1.5;margin-top:8px;max-width:34ch;min-height:3em}
-.wp-price{font-family:var(--f-body);font-size:56px;font-weight:800;letter-spacing:-.04em;margin:28px 0 24px;padding-bottom:28px;border-bottom:1px solid #dedee3}
-.wp-card h4{color:#6b6b75;font-size:16px;font-weight:500;margin-bottom:16px}
-.wp-card ul{list-style:none;padding:0;margin:0 0 32px;display:grid;gap:14px;font-size:16px;color:#2c2c34}
-.wp-card li{display:flex;gap:10px;align-items:baseline}
-.wp-card li::before{content:"";width:7px;height:7px;border-radius:50%;background:#6b6b75;flex:none;transform:translateY(-2px)}
-.wp-btn{margin-top:auto;display:block;text-align:center;padding:15px 20px;border-radius:12px;font-weight:700;font-size:15px;background:#0b0b14;color:#fff;transition:transform .2s,background .2s}
-.wp-card:not(.pro) .wp-btn{background:#fff;color:#0b0b14;border:1px solid #dedee3}
-.wp-btn:hover{transform:translateY(-2px)}
+.webpk{position:relative;padding-block:110px}
+.wp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:48px}
+.wp-head h2{font-size:clamp(34px,5vw,64px);font-weight:800;max-width:14ch;margin-top:12px}
+.wp-head p{max-width:40ch;color:var(--mist)}
+.wp-word{display:inline-block;position:relative;background:linear-gradient(100deg,var(--coral),var(--lilac,#c9a8ff) 50%,var(--lagoon));-webkit-background-clip:text;background-clip:text;color:transparent;transition:transform .55s cubic-bezier(.2,.8,.2,1),opacity .55s,filter .55s}
+.wp-word.out{transform:translateY(-.5em);opacity:0;filter:blur(8px)}
+.wp-word.pre{transform:translateY(.6em);opacity:0;filter:blur(8px);transition:none}
+.wp-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:1000px}
+.wp-card{position:relative;isolation:isolate;display:flex;flex-direction:column;padding:34px 34px 30px;border-radius:30px;border:1px solid transparent;background:linear-gradient(170deg,#121347,#0a0a2a) padding-box,linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.04)) border-box;overflow:hidden;transition:transform .35s}
+.wp-card:hover{transform:translateY(-4px)}
+.wp-card.pro{background:linear-gradient(170deg,#1a1458,#0c0b31) padding-box,linear-gradient(140deg,var(--coral),var(--lilac,#c9a8ff) 45%,var(--lagoon)) border-box}
+.wp-card.pro::before{content:"";position:absolute;inset:auto -20% -40% -20%;height:70%;z-index:-1;background:radial-gradient(closest-side,rgba(255,122,138,.28),transparent),radial-gradient(closest-side at 70% 60%,rgba(79,216,255,.22),transparent);filter:blur(20px)}
+.wp-bub{position:absolute;bottom:-20px;width:var(--s);height:var(--s);left:var(--x);border-radius:50%;border:1px solid rgba(255,255,255,.35);background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.5),transparent 60%);z-index:-1;animation:wpRise var(--t) linear infinite;animation-delay:var(--d)}
+@keyframes wpRise{0%{transform:translateY(0);opacity:0}15%{opacity:.8}100%{transform:translateY(-520px) translateX(14px);opacity:0}}
+.wp-top{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.wp-ic{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1)}
+.wp-card.pro .wp-ic{background:linear-gradient(140deg,var(--coral),#8a5cff);border:0}
+.wp-ic svg{width:24px;height:24px;fill:none;stroke:var(--foam);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.wp-card h3{font-size:28px;font-weight:800}
+.wp-badge{margin-left:auto;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:6px 11px;border-radius:999px;background:rgba(255,122,138,.14);color:var(--coral);border:1px solid rgba(255,122,138,.35);white-space:nowrap}
+.wp-desc{color:var(--mist);min-height:3.2em}
+.wp-price{font-family:var(--f-display);font-size:68px;font-weight:800;letter-spacing:-.04em;line-height:1;margin:26px 0 26px}
+.wp-card.pro .wp-price{background:linear-gradient(100deg,#fff 30%,var(--peach));-webkit-background-clip:text;background-clip:text;color:transparent}
+.wp-card h4{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--lagoon);font-weight:500;margin:0 0 16px;padding-top:22px;border-top:1px dashed rgba(255,255,255,.14)}
+.wp-card ul{list-style:none;padding:0;margin:0 0 30px;display:grid;gap:12px}
+.wp-card li{display:flex;gap:12px;align-items:center}
+.wp-card li::before{content:"";flex:none;width:20px;height:20px;border-radius:50%;background:rgba(79,216,255,.14) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234fd8ff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E") center/12px no-repeat}
+.wp-card.pro li::before{background-color:rgba(255,122,138,.16);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ff7a8a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")}
+.wp-card .btn{margin-top:auto;justify-content:center}
+.wp-card:not(.pro) .btn{border-color:rgba(255,255,255,.3)}
 @media (max-width:760px){
-  .webpk{padding-block:56px 64px}
-  .wp-box{grid-template-columns:1fr;padding:8px}
-  .wp-card{padding:30px 24px 24px}
-  .wp-orb{top:24px;right:22px;width:36px;height:36px}
-  .wp-price{font-size:46px}
-  .wp-title{font-size:clamp(38px,11vw,60px)}
+  .webpk{padding-block:72px}
+  .wp-grid{grid-template-columns:1fr}
+  .wp-card{padding:28px 22px 24px;border-radius:24px}
+  .wp-price{font-size:56px}
 }
+@media (prefers-reduced-motion:reduce){.wp-bub{display:none}}
 @media (max-width:620px){
   .pt-grid{grid-template-columns:1fr 1fr}
   .pt-tile{height:110px}
@@ -370,6 +375,9 @@ a.pk-card{color:inherit;text-decoration:none;border-radius:40px}
   .nav-links{display:none}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:64px;left:16px;right:16px;border-radius:20px;background:rgba(7,7,31,.92);color:var(--foam);padding:10px}
   .menu-btn{display:inline-block}
+  .nav .nav-links.open,.nav.light-top .nav-links.open{background:rgba(10,10,40,.97);color:var(--foam);border-color:rgba(255,255,255,.12);box-shadow:0 24px 60px -20px rgba(7,7,31,.7);z-index:30}
+  .nav-links.open a{padding:13px 16px;font-size:17px;color:var(--foam)}
+  .nav-links.open a:hover{background:rgba(255,255,255,.08)}
   .nav-cta .login,.nav-cta .btn-ghost{display:none}
   .spot,.services,.steps{grid-template-columns:1fr 1fr}
   .spot .card-a{grid-column:1/-1}
@@ -632,14 +640,15 @@ a.pk-card{color:inherit;text-decoration:none;border-radius:40px}
   <section class="webpk" id="web-paketleri" aria-labelledby="wpTitle">
     <div class="wrap">
       <div class="wp-head">
-        <div class="wp-tag">(Web Sitesi Paketleri)</div>
-        <h2 class="wp-title" id="wpTitle" aria-label="Doğru Planla.">Doğru Planla.</h2>
-        <p>İhtiyacınıza uygun web sitesi paketini seçin.</p>
+        <div>
+          <div class="eyebrow">Web sitesi paketleri</div>
+          <h2 id="wpTitle">Markanıza <span class="wp-word" id="wpWord">hızlı</span> bir dijital vitrin.</h2>
+        </div>
+        <p>İki net seçenek, şeffaf fiyat. İhtiyacınıza uygun olanı seçin, gerisini Luna ekibine bırakın.</p>
       </div>
-      <div class="wp-box">
+      <div class="wp-grid">
         <article class="wp-card">
-          <i class="wp-orb mono" aria-hidden="true"></i>
-          <h3>Başlangıç</h3>
+          <div class="wp-top"><span class="wp-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M3 8h18"/></svg></span><h3>Başlangıç</h3></div>
           <p class="wp-desc">Yeni kurulan markalar için sade, hızlı ve profesyonel dijital başlangıç.</p>
           <div class="wp-price">$300</div>
           <h4>Neler dahil?</h4>
@@ -650,12 +659,12 @@ a.pk-card{color:inherit;text-decoration:none;border-radius:40px}
             <li>İletişim formu kurulumu</li>
             <li>Yayına alma desteği</li>
           </ul>
-          <a class="wp-btn" href="#iletisim">Başlangıç paketini seç</a>
+          <a class="btn btn-ghost" href="#iletisim">Başlangıç için teklif al</a>
         </article>
         <article class="wp-card pro">
-          <i class="wp-orb color" aria-hidden="true"></i>
-          <h3>Büyüme</h3>
-          <p class="wp-desc">Dijitalde daha güçlü görünmek isteyen markalar için.</p>
+          <i class="wp-bub" aria-hidden="true" style="--s:10px;--x:12%;--t:9s;--d:0s"></i><i class="wp-bub" aria-hidden="true" style="--s:6px;--x:30%;--t:7s;--d:-3s"></i><i class="wp-bub" aria-hidden="true" style="--s:14px;--x:62%;--t:11s;--d:-5s"></i><i class="wp-bub" aria-hidden="true" style="--s:8px;--x:80%;--t:8s;--d:-2s"></i><i class="wp-bub" aria-hidden="true" style="--s:5px;--x:90%;--t:6s;--d:-4s"></i>
+          <div class="wp-top"><span class="wp-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 7h12l1 13H5L6 7z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg></span><h3>Büyüme</h3><span class="wp-badge">Önerilen</span></div>
+          <p class="wp-desc">Dijitalde daha güçlü görünmek ve satış yapmak isteyen markalar için.</p>
           <div class="wp-price">$500</div>
           <h4>Neler dahil?</h4>
           <ul>
@@ -665,7 +674,7 @@ a.pk-card{color:inherit;text-decoration:none;border-radius:40px}
             <li>Sosyal medya yönlendirmeleri</li>
             <li>Reklam süreci planlaması</li>
           </ul>
-          <a class="wp-btn" href="#iletisim">Büyüme paketini seç</a>
+          <a class="btn btn-solid" href="#iletisim">Büyüme için teklif al</a>
         </article>
       </div>
     </div>
@@ -802,24 +811,22 @@ a.pk-card{color:inherit;text-decoration:none;border-radius:40px}
     }, 1400);
   }
 
-  // Web paketleri: başlık kelimeleri harf harf değişir
+  // Web paketleri: başlıktaki vurgulu kelime değişir
   (() => {
-    const t = document.getElementById('wpTitle');
-    if (!t || reduce) return;
-    const words = ['Doğru Planla.', 'Güçlü Büyü.', 'Akıllı Başla.'];
+    const w = document.getElementById('wpWord');
+    if (!w || reduce) return;
+    const words = ['hızlı', 'şık', 'modern', 'güçlü', 'hızlı'];
     let k = 0;
-    const paint = w => { t.innerHTML = [...w].map((c, i) => `<span style="--i:${i}">${c === ' ' ? '&nbsp;' : c}</span>`).join(''); t.setAttribute('aria-label', w); };
-    paint(words[0]);
     setInterval(() => {
-      t.classList.add('out');
+      w.classList.add('out');
       setTimeout(() => {
-        k = (k + 1) % words.length;
-        paint(words[k]);
-        t.classList.remove('out'); t.classList.add('pre');
-        t.offsetWidth;
-        t.classList.remove('pre');
-      }, 650);
-    }, 3200);
+        k = (k + 1) % (words.length - 1);
+        w.textContent = words[k];
+        w.classList.remove('out'); w.classList.add('pre');
+        w.offsetWidth;
+        w.classList.remove('pre');
+      }, 550);
+    }, 2600);
   })();
 
   // Spotlight cards tilt toward cursor
